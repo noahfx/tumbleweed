@@ -1,4 +1,4 @@
 tubleweed
 =========
 
-Free and OpenSourceTumblr  client
+Free and Open SourceTumblr  client
