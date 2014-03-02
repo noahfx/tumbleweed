@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Tumbleweed",
+  "description": "Tumbleweed Tumblr client for Chrome",
+  "version": "0.0.0",
+  "default_locale": "en",
+  "app": {
+    "launch": {
+      "local_path": "index.html"
+    }
+  },
+  "icons": {
+    "16": "image/ic16_tumbleweed.png",
+    "24": "image/ic24_tumbleweed.png",
+    "128": "image/ic128_tumbleweed.png"
+  },
+  "permissions": [
+    "<all_urls>",
+    "unlimitedStorage",
+    "notifications",
+    "contextMenus",
+    "background",
+    "tabs"
+  ]
+}
