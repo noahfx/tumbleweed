@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tumblr API</title>
+        <script type="text/javascript" src="jquery-1.11.0.js"></script>
+        <link rel="stylesheet" href="typeplate.css"/>
+        <style type="text/css">
+            body {
+                padding: 20px;
+                background: #f8f8f8;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Tumblr API</h1>
+        <script type="text/javascript">
+            (function() {
+
+                'use strict';
+
+                // JSONP script loader
+                var jsonp = function(url) {
+                    var head = document.head;
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.src = url;
+                    head.appendChild(script);
+                    head.removeChild(script);
+                };
+
+                // Tumblr API simple library example
+                var API = {
+                    key: 'API_KEY',
+                    url: function(url) {
+                        return 'http://api.tumblr.com/v2/' + url + '?api_key=' + this.key;
+                    },
+                    info_url: function(blog, callback) {
+                        var url = this.url('blog/' + blog + '/info');
+                        if (callback) {
+                            url += '&callback=' + callback;
+                        }
+                        return url;
+                    },
+                    info: function(blog, callback) {
+                        jsonp(this.info_url(blog, callback));
+                    }
+                };
+                window.API = API;
+
+                // Example with pure JS
+                window.show_blog_info = function(data) { console.log('With pure JS', data); };
+                API.info('betterprogrammer.tumblr.com', 'show_blog_info');
+
+                // JSONP call for GET requests with JQuery
+                $.ajax({
+                    url: API.info_url('betterprogrammer.tumblr.com'),
+                    dataType: 'jsonp',
+                    success: function(data) {
+                        console.log('With JQuery', data);
+                    }
+                })
+
+            }());
+        </script>
+    </body>
+</html>
