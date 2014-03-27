@@ -1,8 +1,7 @@
 tubleweed
 =========
 
-Free and Open SourceTumblr  client
-
+Free and Open Source Tumblr client
 
 Want to help?
 
